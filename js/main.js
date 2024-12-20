@@ -88,7 +88,7 @@ processButton.addEventListener('click', async () => {
     ctx.drawImage(imageObj, 0, 0);
 
     // 计算图片底部10%区域的高度
-    const bottomHeight = Math.floor(canvas.height * 0.1);
+    const bottomHeight = Math.floor(canvas.height * 0.08);
     const bottomY = canvas.height - bottomHeight;
 
     // 裁剪出原始图片底部10%的图像并保存
@@ -102,7 +102,7 @@ processButton.addEventListener('click', async () => {
     const textLines = textInput.value.split('\n');
 
     // 处理第一行文字直接绘制在原图片底部10%区域
-    let fontSize = Math.floor(bottomHeight * 0.7);
+    let fontSize = Math.floor(bottomHeight * 0.6);
     ctx.font = `${fontSize}px Arial`;
     const textWidth = ctx.measureText(textLines[0]).width;
     const firstTextX = (canvas.width - textWidth) / 2;
@@ -129,7 +129,7 @@ processButton.addEventListener('click', async () => {
         }
 
         // 重新计算文字大小（因为画布高度变化了，重新按比例估算合适字体大小）
-        fontSize = Math.floor((tempCanvas.height - canvas.height) * 0.7);
+        fontSize = Math.floor((tempCanvas.height - canvas.height) * 0.6);
         tempCtx.font = `${fontSize}px Arial`;
         const textWidth = tempCtx.measureText(textLines[i]).width;
         const textX = (tempCanvas.width - textWidth) / 2;
